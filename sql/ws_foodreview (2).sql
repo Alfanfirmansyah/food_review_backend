@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2019 at 02:29 AM
+-- Generation Time: Jun 18, 2019 at 09:22 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -41,10 +41,8 @@ CREATE TABLE `foods` (
 --
 
 INSERT INTO `foods` (`id`, `name`, `pic`, `price`, `restos_id`) VALUES
-(1, 'Prasmanan Ayam Goreng', 'ayamgorengcaksul.jpg', 15000, 1),
-(2, 'Prasmanan Telor Goreng', 'telorgorengcaksul.jpg', 10000, 1),
-(3, 'Tahu Telor', 'tahutelor.jpg', 12000, 2),
-(4, 'Lalapan Ayam Goreng', 'lalapan.jpg', 15000, 2);
+(5, 'Kepiting Bakar', 'kepiting.jpg', 50000, 1),
+(6, 'Pizza Melati', 'pizza.jpg', 35000, 1);
 
 -- --------------------------------------------------------
 
@@ -58,6 +56,7 @@ CREATE TABLE `restos` (
   `address` varchar(45) DEFAULT NULL,
   `category` varchar(45) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
+  `gambar` varchar(50) NOT NULL,
   `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -65,9 +64,8 @@ CREATE TABLE `restos` (
 -- Dumping data for table `restos`
 --
 
-INSERT INTO `restos` (`id`, `name`, `address`, `category`, `website`, `description`) VALUES
-(1, 'Warung Cak Sul', 'Jl sigura-gura no 05 ', 'Prasmanan', 'warungcaksul.com', 'Didirikan tahun 2002, Atmosphere Resort Café adalah restoran modern dengan desain interior Bali. Atmosphere Resort Café ini memiliki beragam desain setting ruangan, seperti area jamuan makan di lantai satu gedung utama, 11 tatami (tikar dengan meja untuk 10 orang) di lantai dua, dan 12 Gazebo di halaman belakang, yang dihiasi dengan pohon-pohon dan kolam ikan yang akan memberikan suasana alam di tengah-tengah kota.'),
-(2, 'Warung Wareg', 'Suku, Malang ', 'Cafe', 'warungwareg.com', 'Restoran ini menyediakan hidangan khas Indonesia, hidangan laut, dan hidangan Barat. Spesialisasi makanan mereka adalah Iga Sapi Bakar Rica, sop buntut, chicken sicilia, dan lainnya. Mereka juga menyediakan minuman beralkohol seperti anggur, sampanye, cognan, dan lainnya.');
+INSERT INTO `restos` (`id`, `name`, `address`, `category`, `website`, `gambar`, `description`) VALUES
+(1, 'Restoran Melati', 'Jln. Kahuripan 3 Tugu Monument, Malang', 'Restaurant', 'https://www.tuguhotels.com/?utm_source=tripadvisor&utm_medium=referral', 'melati.jpg', 'Resto yang dimiliki oleh hotel Tugu ini memiliki nilai sejarah yang tinggi. di resto ini terdapat berbagai barang antik peninggalan belanda dan sekalgus perjalanan kisah si pendiri. Resto ini memberikan berbagai fasilitas untuk meeting bisnis maupun acara skala besar dengan berbgai keunikan yang dapat ditemukan. pengunjung dapat berselfi ria di berbagai spot yang menarik. menu makan lengkap dari ala Indonesia, chines, eropa, dan amerika. Resto ono menajdi salah satu favorit bule-bule untuk makan malam dan para pejabat. Suasa yang asri, sejuk dan keramahan pelayanan menajdikan resto ini dapat menjadi pilihan terbaik untuk menjamu tamu penting dan spesial');
 
 -- --------------------------------------------------------
 
@@ -90,11 +88,8 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `name`, `email`, `comment`, `rating`, `foods_id`, `created_at`) VALUES
-(1, 'Hafad', 'dwiindra@gmail.com', 'Wenak, murah manteb coyy', 4, 3, '2019-05-02 06:11:10'),
-(2, 'Dwi Indra', 'dwiindra@gmail.com', 'Makanan yang khas, sedap bgtzz', 5, 1, '2019-05-02 06:11:10'),
-(5, 'Fahmy', 'dwiindra@gmail.com', 'Murah tapi rasa tidak bohong', 4, 4, '2019-05-02 07:53:35'),
-(6, 'Angga', 'dwiindra@gmail.com', 'Langganan saya disini', 4, 4, '2019-05-02 07:55:06'),
-(7, 'Dika', 'dwiindra@gmail.com', 'Wenak kuyy', 4, 4, '2019-05-02 08:25:37');
+(8, 'Alfan Firmansyah', NULL, 'Makanan yang sedap khas berbeda dengan yang lain.', 4, 5, '2019-06-16 21:24:14'),
+(9, 'Hafad', 'hafad@gmail.com', 'Enak', 1, 6, '2019-06-17 04:10:41');
 
 --
 -- Indexes for dumped tables
@@ -128,19 +123,19 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `restos`
 --
 ALTER TABLE `restos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
