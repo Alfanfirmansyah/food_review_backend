@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var con = require('../db.js')
+const mysql = require('mysql')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -21,10 +22,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/notify', function(req, res, next) {
-
-  var paramdate = req.body.date
-  var sql = "SELECT * FROM `reviews` WHERE created_at = "+mysql.escape(paramdate)
+  var paramdate = req.query.date
+  var sql = "SELECT reviews.*, foods.name as namefood FROM reviews join foods on reviews.foods_id = foods.id WHERE created_at = "+mysql.escape(paramdate)
     con.query(sql, function (err, result) {
+      if(err) throw err
       if(result.length == 0){
         console.log("No Result: " + result);
         res.send(result[0]);
